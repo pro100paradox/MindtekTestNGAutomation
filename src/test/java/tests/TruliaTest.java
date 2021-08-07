@@ -6,7 +6,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TruliaAppHomePage;
+import pages.TruliaSearchPage;
+import utilities.BrowserUtils;
 import utilities.ConfigReader;
+import utilities.DataUtils;
 import utilities.TestBase;
 
 public class TruliaTest extends TestBase {
@@ -41,13 +44,35 @@ public class TruliaTest extends TestBase {
 
     }
 
-    public void test3() {
+    @Test
+    public void test3() throws InterruptedException {
         TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
+        TruliaSearchPage truliaSearchPage = new TruliaSearchPage();
         driver.get("https://www.trulia.com/");
-        truliaAppHomePage.buyButton.click();
-        truliaAppHomePage.searchBox.click();
-        truliaAppHomePage.searchBox.sendKeys("$$$$$$$$$$$$$$$$$$" + Keys.ENTER);
+        truliaAppHomePage.topBuyButton.click();
+        truliaSearchPage.topSearchBox.click();
+        truliaSearchPage.topSearchBox.sendKeys("$$$$$$$$$$$$$$$$$$$$$$$$$"+Keys.ENTER);
+        Thread.sleep(3000);
+        String actualHeadingMessage = truliaSearchPage.serverIssueHeader.getText();
+        System.out.println(actualHeadingMessage);
+        String expectedHeadingMessage = "Our servers had an issue with your request.";
+        Assert.assertEquals(actualHeadingMessage, expectedHeadingMessage, "Actual Heading doesn't mach to the requirements");
+    }
 
+    @Test
+    public void test4() throws InterruptedException {
+        TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
+        TruliaSearchPage truliaSearchPage = new TruliaSearchPage();
+        driver.get("https://www.trulia.com/");
+        truliaAppHomePage.topBuyButton.click();
+        truliaSearchPage.topSearchBox.click();
+        truliaSearchPage.topSearchBox.sendKeys("asdfhjwkeutoaigjhetagjtksjto195893jghabgnfhdjroqptkgn245jghajgktlfjahl"+Keys.ENTER);
+        Thread.sleep(3000);
+        String actualHeadingMessage = truliaSearchPage.serverIssueHeader.getText();
+        System.out.println(actualHeadingMessage);
+        String expectedHeadingMessage = "Our servers had an issue with your request.";
+        Assert.assertEquals(actualHeadingMessage, expectedHeadingMessage, "Actual Heading doesn't mach to the requirements");
 
     }
+
 }

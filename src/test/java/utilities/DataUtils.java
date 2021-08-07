@@ -22,4 +22,15 @@ public class DataUtils {
         int randomNum = random.nextInt(range);
         return randomNum;
     }
+    /*
+    This method will remove dollar sign from String
+    and will convert it to double.
+    Ex:
+          .remove$AndConvertToDouble("$16.51); --> returns double -->16.51
+
+     */
+    public static double remove$AndConvertToDouble(String amount){
+        amount = amount.substring(1);
+        return Double.parseDouble(amount);
+    }
 }
