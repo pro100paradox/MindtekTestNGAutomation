@@ -12,8 +12,7 @@ import utilities.TestBase;
 public class StoreTests extends TestBase {
 
 
-
-    @Test(groups = {"regression","smoke"})
+    @Test(groups = {"regression", "smoke"})
     public void test1() {
         StoreAppHomePage storeAppHomePage = new StoreAppHomePage();
         StoreAppContactUsPage storeAppContactUsPage = new StoreAppContactUsPage();
@@ -37,29 +36,28 @@ public class StoreTests extends TestBase {
         // Negative scenario for contact us
     }
 
-        @Test(groups = {"regression","smoke"})
-                public void test2(){
-            StoreAppHomePage storeAppHomePage = new StoreAppHomePage();
-            StoreAppContactUsPage storeAppContactUsPage = new StoreAppContactUsPage();
-            driver.get(ConfigReader.getProperty("StoreAppURL"));
-            storeAppHomePage.contactUsButton.click();
-            Select select = new Select(storeAppContactUsPage.subjectheadingDropdown);
-            select.selectByValue("2");
-            storeAppContactUsPage.email.sendKeys(ConfigReader.getProperty("userGuru99"));
-            String projectPath = System.getProperty("user.dir");
-            System.out.println(projectPath);
-            storeAppContactUsPage.fileUpload.sendKeys(projectPath + "/src/test/resources/testdata/bk13.jpeg");
+    @Test(groups = {"regression", "smoke"})
+    public void test2() {
+        StoreAppHomePage storeAppHomePage = new StoreAppHomePage();
+        StoreAppContactUsPage storeAppContactUsPage = new StoreAppContactUsPage();
+        driver.get(ConfigReader.getProperty("StoreAppURL"));
+        storeAppHomePage.contactUsButton.click();
+        Select select = new Select(storeAppContactUsPage.subjectheadingDropdown);
+        select.selectByValue("2");
+        storeAppContactUsPage.email.sendKeys(ConfigReader.getProperty("userGuru99"));
+        String projectPath = System.getProperty("user.dir");
+        System.out.println(projectPath);
+        storeAppContactUsPage.fileUpload.sendKeys(projectPath + "/src/test/resources/testdata/bk13.jpeg");
 
-            storeAppContactUsPage.submitButton.click();
+        storeAppContactUsPage.submitButton.click();
 
-            String actual = storeAppContactUsPage.errorMessage.getText();
-            String expected = "The message cannot be blank.";
+        String actual = storeAppContactUsPage.errorMessage.getText();
+        String expected = "The message cannot be blank.";
 
-            Assert.assertEquals(actual,expected);
-        }
+        Assert.assertEquals(actual, expected);
+    }
 
-        public void contactUs(){
-
-        }
+    public void contactUs() {
 
     }
+}

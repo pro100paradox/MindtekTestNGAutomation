@@ -22,14 +22,23 @@ public class StoreAppHomePage {
          @FindBy(xpath = "//a[@class='login']")
           public WebElement loginButton;
 
-         @FindBy(xpath="//span[@class='price product-price']")
-    public List<WebElement> prices;
+         @FindBy(xpath="//*[@id='homefeatured']/li[1]/div/div[2]/div[1]/span")
+    public List<WebElement> prices1;
 
-         @FindBy(xpath = "//ul[@id='homefeatured']/li")
+         @FindBy(xpath = "//*[@id='homefeatured']/li[2]/div/div[2]/div[1]/span")
+         public List<WebElement> prices2;
+
+         @FindBy(xpath = "//ul[@id='homefeatured']/li[1]")
          public WebElement itemWindow1;
+
+    @FindBy(xpath = "//ul[@id='homefeatured']/li[2]")
+    public WebElement itemWindow2;
 
          @FindBy(xpath="//ul[@id='homefeatured']//a[@data-id-product='1']")
     public WebElement addToCartItem1;
+
+    @FindBy(xpath="//ul[@id='homefeatured']//a[@data-id-product='2']")
+    public WebElement addToCartItem2;
 
          @FindBy(xpath = "//div[@class='layer_cart_product col-xs-12 col-md-6']//h2")
          public WebElement actualSuccessMessage;
@@ -42,6 +51,12 @@ public class StoreAppHomePage {
 
          @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")
     public WebElement proceedToCheckout;
+
+         @FindBy(xpath = "//span[@title='Continue shopping']")
+    public WebElement continueShoppingButton;
+
+         @FindBy(xpath = "//*[@id='layer_cart']/div[1]/div[2]/h2/span[2]")
+    public WebElement numberOfItemsAdded;
 
 
 

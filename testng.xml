@@ -4,7 +4,6 @@
         <groups>
             <run>
                 <include name="regression"></include>
-
             </run>
         </groups>
         <classes>
@@ -13,6 +12,7 @@
             <class name="tests.RedShelfTests"></class>
             <class name="tests.StoreRegisterFunctionalityTests"></class>
             <class name="tests.StoreAddCartTests"></class>
+            <class name="tests.SauceDemoTests"></class>
         </classes>
     </test>
 </suite>
