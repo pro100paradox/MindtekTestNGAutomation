@@ -7,12 +7,8 @@
             </run>
         </groups>
         <classes>
-            <class name="tests.StoreTests"></class>
-            <class name="tests.BlazedemoTest"></class>
-            <class name="tests.RedShelfTests"></class>
-            <class name="tests.StoreRegisterFunctionalityTests"></class>
-            <class name="tests.StoreAddCartTests"></class>
-            <class name="tests.SauceDemoTests"></class>
+            <class name="tests.TruliaTest"></class>
+
         </classes>
     </test>
 </suite>

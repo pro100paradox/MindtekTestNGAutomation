@@ -11,7 +11,7 @@ import utilities.TestBase;
 
 public class TruliaTest extends TestBase {
 
-    @Test
+    @Test(groups = {"regression"})
     public void test1() {
         TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
         driver.get("https://www.trulia.com/");
@@ -26,7 +26,7 @@ public class TruliaTest extends TestBase {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void test2() {
         TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
         driver.get("https://www.trulia.com/");
@@ -41,7 +41,7 @@ public class TruliaTest extends TestBase {
 
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void test3() throws InterruptedException {
         TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
         TruliaAppSearchResultPage truliaAppSearchResultPage = new TruliaAppSearchResultPage();
@@ -56,7 +56,7 @@ public class TruliaTest extends TestBase {
         Assert.assertEquals(actualHeadingMessage, expectedHeadingMessage, "Actual Heading doesn't mach to the requirements");
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void test4() throws InterruptedException {
         TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
         TruliaAppSearchResultPage truliaAppSearchResultPage = new TruliaAppSearchResultPage();
@@ -71,7 +71,7 @@ public class TruliaTest extends TestBase {
         Assert.assertEquals(actualHeadingMessage, expectedHeadingMessage, "Actual Heading doesn't mach to the requirements");
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void test5() throws InterruptedException {
 
         //1.    Navigate to the webpage
@@ -87,6 +87,22 @@ public class TruliaTest extends TestBase {
         String actualMessage = driver.findElement(By.xpath("//div[contains(text(), 'Our servers had an issue with your request.')]")).getText();
         String expectedMessage = "Our servers had an issue with your request.";
         Assert.assertEquals(actualMessage, expectedMessage);
+
+    }
+
+    @Test(groups = {"regression"})
+    ////a[contains(text(), 'Learn more')]
+    public void test6() throws InterruptedException {
+        //1.    Navigate to the webpage
+        TruliaAppHomePage truliaAppHomePage = new TruliaAppHomePage();
+        TruliaAppSearchResultPage truliaAppSearchResultPage = new TruliaAppSearchResultPage();
+        driver.get(ConfigReader.getProperty("TruliaURL"));
+        truliaAppHomePage.learnMore.click();
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "Discover Trulia Neighborhoods";
+
+        Assert.assertEquals(actualTitle,expectedTitle);
+
 
     }
 }

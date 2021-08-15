@@ -25,6 +25,9 @@ public class TruliaAppHomePage {
     @FindBy(xpath= "//*[@id='__next']/div[2]/header/nav/ul/li[1]/a")
     public WebElement topBuyButton;
 
+    @FindBy(xpath = "//a[contains(text(), 'Learn more')]")
+    public WebElement learnMore;
+
 
 
     }
